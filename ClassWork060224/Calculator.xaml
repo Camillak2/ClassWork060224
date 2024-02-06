@@ -27,12 +27,22 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Result"
+        <TextBlock x:Name="Dzialanie"
             Grid.Column="0"
             Grid.Row="0"
             Grid.ColumnSpan="8"
-            Height="50"
+            Height="30"
             Width="760"
+            VerticalAlignment="Top"
+            Background="#FFDE9B97"
+            FontSize="20"/>
+        <TextBlock x:Name="Input"
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="8"
+            Height="45"
+            Width="760"
+            VerticalAlignment="Bottom"
             Background="#FFDE9B97"/>
         <Button x:Name="EqualsBTN"
             Grid.Column="7"
@@ -45,25 +55,25 @@
                 Grid.Row="4"
                 Content="+"
                 Height="60"
-                Width="60" Click="PlusBTN_Click"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="MinusBTN"
             Grid.Column="7"
                 Grid.Row="3"
                 Content="-"
                 Height="60"
-                Width="60" Click="MinusBTN_Click"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="MultiplicationBTN"
             Grid.Column="7"
                 Grid.Row="2"
-                Content="x"
+                Content="*"
                 Height="60"
-                Width="60" Click="MultiplicationBTN_Click"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="DivisionBTN"
             Grid.Column="7"
                 Grid.Row="1"
                 Content="/"
                 Height="60"
-                Width="60" Click="DivisionBTN_Click"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="PercentBTN"
             Grid.Column="6"
                 Grid.Row="1"
@@ -75,7 +85,7 @@
                 Grid.Row="1"
                 Content="+/-"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="PlusMinusBTN_Click"/>
         <Button x:Name="ACBTN"
             Grid.Column="4"
                 Grid.Row="1"
@@ -87,62 +97,62 @@
                 Grid.Row="2"
                 Content="7"
                 Height="60"
-                Width="60" Click="SevenBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="EightBTN"
             Grid.Column="5"
                 Grid.Row="2"
                 Content="8"
                 Height="60"
-                Width="60" Click="EightBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="NineBTN"
             Grid.Column="6"
                 Grid.Row="2"
                 Content="9"
                 Height="60"
-                Width="60" Click="NineBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="FourBTN"
             Grid.Column="4"
                 Grid.Row="3"
                 Content="4"
                 Height="60"
-                Width="60" Click="FourBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="FiveBTN"
             Grid.Column="5"
                 Grid.Row="3"
                 Content="5"
                 Height="60"
-                Width="60" Click="FiveBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="SixBTN"
             Grid.Column="6"
                 Grid.Row="3"
                 Content="6"
                 Height="60"
-                Width="60" Click="SixBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="OneBTN"
             Grid.Column="4"
                 Grid.Row="4"
                 Content="1"
                 Height="60"
-                Width="60" Click="OneBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="TwoBTN"
             Grid.Column="5"
                 Grid.Row="4"
                 Content="2"
                 Height="60"
-                Width="60" Click="TwoBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="ThreeBTN"
             Grid.Column="6"
                 Grid.Row="4"
                 Content="3"
                 Height="60"
-                Width="60" Click="ThreeBTN_Click"/>
+                Width="60" Click="NumberBTN_Click"/>
         <Button x:Name="ZeroBTN"
             Grid.Column="4"
                 Grid.Row="5"
                 Content="0"
                 Height="60"
                 Width="160"
-                Grid.ColumnSpan="2" Click="ZeroBTN_Click"/>
+                Grid.ColumnSpan="2" Click="NumberBTN_Click"/>
         <Button x:Name="CommaBTN"
             Grid.Column="6"
                 Grid.Row="5"
@@ -154,43 +164,43 @@
                 Grid.Row="1"
                 Content="Sin"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="SinButton_Click"/>
         <Button x:Name="CosBTN"
             Grid.Column="1"
                 Grid.Row="1"
                 Content="Cos"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="CosButton_Click"/>
         <Button x:Name="TgBTN"
             Grid.Column="2"
                 Grid.Row="1"
                 Content="Tg"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="TgButton_Click"/>
         <Button x:Name="CtgBTN"
             Grid.Column="3"
                 Grid.Row="1"
                 Content="Ctg"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="CtgButton_Click"/>
         <Button x:Name="SecondSDegreeBTN"
             Grid.Column="0"
                 Grid.Row="2"
                 Content="x^2"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="SecondSDegreeBTN_Click"/>
         <Button x:Name="ThirdSDegreeBTN"
             Grid.Column="1"
                 Grid.Row="2"
                 Content="x^3"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="ThirdSDegreeBTN_Click"/>
         <Button x:Name="yDegreeBTN"
             Grid.Column="2"
                 Grid.Row="2"
                 Content="x^y"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="xDegreeBTN"
             Grid.Column="3"
                 Grid.Row="2"
@@ -202,45 +212,51 @@
                 Grid.Row="2"
                 Content="e^x"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="exBTN_Click"/>
         <Button x:Name="SqrtBTN"
             Grid.Column="0"
                 Grid.Row="3"
                 Content="2\/x"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="SqrtBTN_Click"/>
         <Button x:Name="ThirdSqrtBTN"
             Grid.Column="1"
                 Grid.Row="3"
                 Content="3\/x"
                 Height="60"
-                Width="60"/>
-        <Button x:Name="OneXBTN"
+                Width="60" Click="ThirdSqrtBTN_Click"/>
+        <Button x:Name="ySqrtBTN"
             Grid.Column="2"
+                Grid.Row="3"
+                Content="y\/x"
+                Height="60"
+                Width="60" Click="OperatorBTN_Click"/>
+        <Button x:Name="OneXBTN"
+            Grid.Column="3"
                 Grid.Row="3"
                 Content="1/x"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="OneXBTN_Click"/>
         <Button x:Name="NaturalLogXBTN"
-            Grid.Column="3"
-                Grid.Row="3"
+            Grid.Column="0"
+                Grid.Row="4"
                 Content="Ln"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="NaturalLogXBTN_Click"/>
         <Button x:Name="LgBTN"
-            Grid.Column="1"
+            Grid.Column="2"
                 Grid.Row="4"
                 Content="Lg"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="LgBTN_Click"/>
         <Button x:Name="LogBTN"
-            Grid.Column="0"
+            Grid.Column="1"
                 Grid.Row="4"
                 Content="Log"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="ClearBTN"
-            Grid.Column="2"
+            Grid.Column="3"
                 Grid.Row="4"
                 Content="C"
                 Height="60"
