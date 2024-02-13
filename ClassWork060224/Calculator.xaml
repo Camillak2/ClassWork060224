@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClassWork060224"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Calculator" FontSize="30">
+      d:DesignHeight="450" d:DesignWidth="800" Background="#BC987E"
+      Title="Calculator">
 
-    <Grid>
+    <Grid Background="#FFDAC4B3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -27,16 +27,25 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Dzialanie"
+        <TextBox x:Name="Dzialanie"
             Grid.Column="0"
             Grid.Row="0"
             Grid.ColumnSpan="8"
-            Height="30"
+            Height="25"
             Width="760"
             VerticalAlignment="Top"
-            Background="#FFDE9B97"
-            FontSize="20"/>
-        <TextBlock x:Name="Input"
+            FontSize="20"
+            IsReadOnly="True">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" BorderBrush="#755C48"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer x:Name="PART_ContentHost" />
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <TextBox x:Name="Input"
             Text="0"
             Grid.Column="0"
             Grid.Row="0"
@@ -44,7 +53,18 @@
             Height="45"
             Width="760"
             VerticalAlignment="Bottom"
-            Background="#FFDE9B97"/>
+            IsReadOnly="True">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10"
+                            BorderBrush="#755C48" 
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="#755C48">
+                        <ScrollViewer x:Name="PART_ContentHost" />
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
         <Button x:Name="EqualsBTN"
             Grid.Column="7"
                 Grid.Row="5"
@@ -213,7 +233,8 @@
                 Grid.Row="2"
                 Content="e^x"
                 Height="60"
-                Width="60" Click="exBTN_Click"/>
+                Width="60" Click="exBTN_Click">
+        </Button>
         <Button x:Name="SqrtBTN"
             Grid.Column="0"
                 Grid.Row="3"

@@ -648,7 +648,14 @@ namespace ClassWork060224
 
         private void ClearBTN_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text = Input.Text.Remove(Input.Text.Length - 1);
+            if (Input.Text.Length != 0)
+            {
+                Input.Text = Input.Text.Remove(Input.Text.Length - 1);
+            }
+            else
+            {
+                Input.Text = "0";
+            }
         }
 
         private void PercentBTN_Click(object sender, RoutedEventArgs e)
