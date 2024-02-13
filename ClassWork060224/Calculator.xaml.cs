@@ -85,13 +85,29 @@ namespace ClassWork060224
                             num2 = 0;
                             dzialanie = " ";
                         }
-                        else
-                        {
-                            this.Input.Text = "NIE DZIEL PRZEZ 0!";
-                            num1 = 0;
-                            num2 = 0;
-                            dzialanie = " ";
-                        }
+                        //else
+                        //{
+                        //    this.Input.Text = "Не делите на нуль!";
+                        //    num1 = 0;
+                        //    num2 = 0;
+                        //    dzialanie = " ";
+                        //}
+                    }
+
+                    else if (dzialanie == "x^y")
+                    {
+                        num1 = Math.Pow(num1, num2);
+                        this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
+                    }
+
+                    else if (dzialanie == "y√x")
+                    {
+                        num1 = Math.Pow(num1, 1/num2);
+                        this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
                     }
                 }
                 isOperatorClicked = false;
@@ -152,15 +168,32 @@ namespace ClassWork060224
                         num1 = num1 / num2;
                         this.Input.Text = Convert.ToString(num1);
                     }
-                    else
-                    {
-                        this.Input.Text = "NIE DZIEL PRZEZ 0!";
-                        num1 = 0;
-                        num2 = 0;
-                        dzialanie = " ";
-                        isCalculated = true;
-                    }
+                    //else
+                    //{
+                    //    this.Input.Text = "Не делите на нуль!";
+                    //    num1 = 0;
+                    //    num2 = 0;
+                    //    dzialanie = " ";
+                    //    isCalculated = true;
+                    //}
                 }
+
+                else if (dzialanie == "x^y")
+                {
+                    num1 = Math.Pow(num1, num2);
+                    this.Input.Text = Convert.ToString(num1);
+                    num2 = 0;
+                    dzialanie = " ";
+                }
+
+                else if (dzialanie == "y√x")
+                {
+                    num1 = Math.Pow(num1, 1 / num2);
+                    this.Input.Text = Convert.ToString(num1);
+                    num2 = 0;
+                    dzialanie = " ";
+                }
+
                 this.Dzialanie.Text += dzialanie;
                 this.Dzialanie.Text += num2;
                 dzialanie = " ";
@@ -260,24 +293,35 @@ namespace ClassWork060224
                             num1 = num1 / num2;
                             this.Input.Text = Convert.ToString(num1);
                         }
-                        else
-                        {
-                            this.Input.Text = "Не днлить на 0!";
-                            num1 = 0;
-                            num2 = 0;
-                            dzialanie = " ";
-                            isCalculated = true;
-                        }
+                        //else
+                        //{
+                        //    this.Input.Text = "Не делить на 0!";
+                        //    num1 = 0;
+                        //    num2 = 0;
+                        //    dzialanie = " ";
+                        //    isCalculated = true;
+                        //}
                     }
+
                     else if (dzialanie == "x^y")
                     {
                         num1 = Math.Pow(num1, num2);
                         this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
                     }
+
+                    else if (dzialanie == "y√x")
+                    {
+                        num1 = Math.Pow(num1, 1 / num2);
+                        this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
+                    }
+
                     if (this.Dzialanie.Text.Length >= 60)
                     {
                         this.Dzialanie.Text = Convert.ToString(num1);
-
                     }
                     dzialanie = b.Content.ToString();
                     num2 = 0;
@@ -341,7 +385,16 @@ namespace ClassWork060224
             if (double.TryParse(Input.Text, out double number))
             {
                 double result = Math.Sin(number);
-                Input.Text = result.ToString();
+                if (RadiansBTN.IsChecked == true && DegreeBTN.IsChecked == false)
+                {
+                    Input.Text = result.ToString();
+                }
+                if(DegreeBTN.IsChecked == true && RadiansBTN.IsChecked == false)
+                {
+                    double result1 = Math.Sin((number / 180D) * Math.PI);
+                   
+                    Input.Text = result1.ToString();
+                }
             }
             else
             {
@@ -353,8 +406,17 @@ namespace ClassWork060224
         {
             if (double.TryParse(Input.Text, out double number))
             {
-                double result = Math.Cos(number);
-                Input.Text = result.ToString();
+                if (RadiansBTN.IsChecked == true && DegreeBTN.IsChecked == false)
+                {
+                    double result = Math.Cos(number);
+                    Input.Text = result.ToString();
+                }
+                if (DegreeBTN.IsChecked == true && RadiansBTN.IsChecked == false)
+                {
+                    double result1 = Math.Cos((number / 180D) * Math.PI);
+
+                    Input.Text = result1.ToString();
+                }
             }
             else
             {
@@ -366,8 +428,17 @@ namespace ClassWork060224
         {
             if (double.TryParse(Input.Text, out double number))
             {
-                double result = Math.Tan(number);
-                Input.Text = result.ToString();
+                if (RadiansBTN.IsChecked == true && DegreeBTN.IsChecked == false)
+                {
+                    double result = Math.Tan(number);
+                    Input.Text = result.ToString();
+                }
+                if (DegreeBTN.IsChecked == true && RadiansBTN.IsChecked == false)
+                {
+                    double result1 = Math.Tan((number / 180D) * Math.PI);
+
+                    Input.Text = result1.ToString();
+                }
             }
             else
             {
@@ -379,8 +450,17 @@ namespace ClassWork060224
         {
             if (double.TryParse(Input.Text, out double number))
             {
-                double result = Math.Cos(number) / Math.Sin(number);
-                Input.Text = result.ToString();
+                if (RadiansBTN.IsChecked == true && DegreeBTN.IsChecked == false)
+                {
+                    double result = Math.Cos(number)/Math.Sin(number);
+                    Input.Text = result.ToString();
+                }
+                if (DegreeBTN.IsChecked == true && RadiansBTN.IsChecked == false)
+                {
+                    double result1 = Math.Cos((number / 180D) * Math.PI) / Math.Sin((number / 180D) * Math.PI);
+
+                    Input.Text = result1.ToString();
+                }
             }
             else
             {

@@ -228,7 +228,7 @@
         <Button x:Name="ySqrtBTN"
             Grid.Column="2"
                 Grid.Row="3"
-                Content="y\/x"
+                Content="y√x"
                 Height="60"
                 Width="60" Click="OperatorBTN_Click"/>
         <Button x:Name="OneXBTN"
@@ -261,5 +261,20 @@
                 Content="C"
                 Height="60"
                 Width="60" Click="ClearBTN_Click"/>
+        <RadioButton x:Name="DegreeBTN"
+            Grid.Column="0"
+                Grid.Row="5"
+                Content="Degrees"
+                VerticalAlignment="Center"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" IsChecked="False"/>
+        <RadioButton x:Name="RadiansBTN"
+            Grid.Column="2"
+                Grid.Row="5"
+                Content="Radians"
+                VerticalAlignment="Center"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                IsChecked="True"/>
     </Grid>
 </Page>
