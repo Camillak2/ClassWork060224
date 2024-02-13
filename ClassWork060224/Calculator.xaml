@@ -37,6 +37,7 @@
             Background="#FFDE9B97"
             FontSize="20"/>
         <TextBlock x:Name="Input"
+            Text="0"
             Grid.Column="0"
             Grid.Row="0"
             Grid.ColumnSpan="8"
@@ -79,7 +80,7 @@
                 Grid.Row="1"
                 Content="%"
                 Height="60"
-                Width="60"/>
+                Width="60" Click="PercentBTN_Click"/>
         <Button x:Name="PlusMinusBTN"
             Grid.Column="5"
                 Grid.Row="1"
@@ -216,13 +217,13 @@
         <Button x:Name="SqrtBTN"
             Grid.Column="0"
                 Grid.Row="3"
-                Content="2\/x"
+                Content="2√x"
                 Height="60"
                 Width="60" Click="SqrtBTN_Click"/>
         <Button x:Name="ThirdSqrtBTN"
             Grid.Column="1"
                 Grid.Row="3"
-                Content="3\/x"
+                Content="3√x"
                 Height="60"
                 Width="60" Click="ThirdSqrtBTN_Click"/>
         <Button x:Name="ySqrtBTN"
@@ -258,7 +259,7 @@
         <Button x:Name="ClearBTN"
             Grid.Column="3"
                 Grid.Row="4"
-                Content="C"
+                Content="←"
                 Height="60"
                 Width="60" Click="ClearBTN_Click"/>
         <RadioButton x:Name="DegreeBTN"

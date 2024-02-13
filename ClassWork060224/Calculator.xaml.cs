@@ -109,6 +109,14 @@ namespace ClassWork060224
                         num2 = 0;
                         dzialanie = " ";
                     }
+
+                    else if (dzialanie == "Log")
+                    {
+                        num1 = Math.Log(num1, num2);
+                        this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
+                    }
                 }
                 isOperatorClicked = false;
                 isCalculated = true;
@@ -122,7 +130,7 @@ namespace ClassWork060224
         private void ACBTN_Click(object s, RoutedEventArgs e)
         {
             this.Dzialanie.Text = "";
-            this.Input.Text = "";
+            this.Input.Text = "0";
             num1 = 0;
             num2 = 0;
             dzialanie = " ";
@@ -189,6 +197,14 @@ namespace ClassWork060224
                 else if (dzialanie == "y√x")
                 {
                     num1 = Math.Pow(num1, 1 / num2);
+                    this.Input.Text = Convert.ToString(num1);
+                    num2 = 0;
+                    dzialanie = " ";
+                }
+
+                else if (dzialanie == "Log")
+                {
+                    num1 = Math.Log(num1, num2);
                     this.Input.Text = Convert.ToString(num1);
                     num2 = 0;
                     dzialanie = " ";
@@ -314,6 +330,14 @@ namespace ClassWork060224
                     else if (dzialanie == "y√x")
                     {
                         num1 = Math.Pow(num1, 1 / num2);
+                        this.Input.Text = Convert.ToString(num1);
+                        num2 = 0;
+                        dzialanie = " ";
+                    }
+
+                    else if (dzialanie == "Log")
+                    {
+                        num1 = Math.Log(num1, num2);
                         this.Input.Text = Convert.ToString(num1);
                         num2 = 0;
                         dzialanie = " ";
@@ -457,8 +481,7 @@ namespace ClassWork060224
                 }
                 if (DegreeBTN.IsChecked == true && RadiansBTN.IsChecked == false)
                 {
-                    double result1 = Math.Cos((number / 180D) * Math.PI) / Math.Sin((number / 180D) * Math.PI);
-
+                    double result1 = (Math.Cos((number / 180D) * Math.PI)) / (Math.Sin((number / 180D) * Math.PI));
                     Input.Text = result1.ToString();
                 }
             }
@@ -594,7 +617,7 @@ namespace ClassWork060224
             }
             catch
             {
-                if (this.Input.Text == "NIE DZIEL PRZEZ 0!")
+                if (this.Input.Text == "Не делите на нуль!")
                 {
                     isCommaClicked = true;
                 }
@@ -625,7 +648,13 @@ namespace ClassWork060224
 
         private void ClearBTN_Click(object sender, RoutedEventArgs e)
         {
+            Input.Text = Input.Text.Remove(Input.Text.Length - 1);
+        }
 
+        private void PercentBTN_Click(object sender, RoutedEventArgs e)
+        {
+            double percent = Convert.ToDouble(this.Input.Text) / 100;
+            this.Input.Text = percent.ToString();
         }
     }
 }
