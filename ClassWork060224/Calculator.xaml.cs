@@ -656,6 +656,7 @@ namespace ClassWork060224
             {
                 Input.Text = "0";
             }
+          
         }
 
         private void PercentBTN_Click(object sender, RoutedEventArgs e)
